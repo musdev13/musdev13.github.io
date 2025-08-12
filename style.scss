@@ -19,6 +19,8 @@ body{
 }
 
 header{
+    opacity: 0;
+    animation: fade 1s ease forwards;
     // margin-bottom: 10px;
     border: 5px solid $fg;
     background-color: $bg;
@@ -87,6 +89,7 @@ header{
     border-bottom: 5px solid $fg;
     border-radius: 10px;
     transition: transform 0.3s ease;
+    width: 90%;
     
     &:hover{
       transform: scale(0.99);
@@ -132,14 +135,21 @@ header{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.5s ease;
+  transition: opacity 1s ease;
   opacity: 1;
+  // animation: fade 2s ease forwards;
   // gap: 50px;
 
   &.hidden{
     opacity: 0;
   }
 
+}
+
+@keyframes fade {
+  to{
+    opacity: 1;
+  }
 }
 
 .control{
@@ -154,6 +164,8 @@ header{
     // position: absolute;
     // bottom: 10px;
     gap: 50px;
+    opacity: 0;
+    animation: fade 2s ease forwards;
     button{
       background-color: $bg;
       border: 5px solid $fg;
@@ -197,21 +209,28 @@ header{
 
     h1{
       transition: transform 0.3s ease;
+      margin-bottom: 32px;
 
       &:hover{
         transform: scale(0.95);
       }
     }
 
-    .row{
-      margin-top: 32px;
+    .column{
       display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      transition: transform 0.3s ease;
       gap: 15px;
+      .row{
+        display: flex;
+        justify-content: center;
+        transition: transform 0.3s ease;
+        gap: 15px;
 
-      &:hover{
-        transform: scale(0.99);
+        &:hover{
+          transform: scale(0.99);
+        }
       }
     }
 
@@ -221,6 +240,7 @@ header{
       padding: 10px 10px;
       border-radius: 15px;
       transition: transform 0.3s ease;
+      // width: 100%;
 
       &:hover{
         transform: scale(0.98);
@@ -252,7 +272,7 @@ header{
         }
         img{
           max-width: 25px;
-          margin-right: 5px;
+          margin-right: 3px;
         }
       }
       .icons{
@@ -272,3 +292,102 @@ header{
       }
     }
   }
+
+.intro{
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  height: 25%;
+  &:hover{
+    transform: scale(0.98);
+  }
+  h1{
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+    &:hover{
+      transform: scale(0.95);
+    }
+  }
+  h2{
+    transition: transform 0.3s ease;
+    &:hover{
+      transform: scale(0.98);
+    }
+  }
+}
+
+  @media (max-width: 890px) {
+    h1{
+      font-size: 25px;
+    }
+    h2{
+      font-size: 20px;
+    }
+    h3{
+      font-size: 16px;
+    }
+    .canvas{
+      height: 77vh;
+    }
+    .about{
+      flex-direction: column;
+
+      .info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1,h2,h3{
+          text-align: center;
+        }
+      }
+
+      img{
+        width: 35vh;
+      }
+    }
+  }
+
+@media (max-width: 700px){
+  .projects{
+    height: 90%;
+    // border: 5px solid $fg;
+    // width: 80%;
+    .column{
+      border-bottom: 5px solid $fg;
+      border-top: 5px solid $fg;
+      border-radius: 10px;
+      align-items: center;
+      justify-content: flex-start;
+      overflow-y: auto;
+      height: 100%;
+      width: 100%;
+      padding: 15px 50px;
+      // height: 50%;
+      // border: 5px solid $fg;
+    }
+    .row{
+      flex-direction: column;
+      // height: 100%;
+      width: 100%;
+      .item{
+        img{
+          max-height: auto;
+          height: auto;
+          width: 100%;
+        }
+        h2{
+          img{
+            max-width: 16px;
+          }
+        }
+        a{
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}
